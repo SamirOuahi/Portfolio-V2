@@ -1,0 +1,581 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap");
+
+:root {
+  --background-color-light: #f5f5f5;
+}
+
+body {
+  padding: 0 5em;
+  background-color: var(--background-color-light);
+  overflow-x: hidden;
+  font-family: quicksand;
+}
+
+/***************------------HOMEPAGE------------***************/
+
+/*************************************** HEADER ***************************************/
+
+.header-container {
+  position: relative;
+  display: flex;
+  top: 20px;
+  left: 20px;
+  margin-right: auto;
+}
+
+/**** Logo ****/
+
+.logo-black {
+  margin-top: 40px;
+  margin-left: 10px;
+  width: 100px;
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo-black:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.logo-white {
+  margin-left: 10px;
+  width: 100px;
+  font-size: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+/**** Cadre principal de la navbar ****/
+
+.navbar {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+}
+
+/**** Contenu de la navbar ****/
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 62px;
+  margin-top: 2em;
+  position: relative;
+}
+
+.navbar .menu-items {
+  display: flex;
+  box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.089);
+  background-color: #000000;
+  height: 80px;
+  width: 100%;
+  transform: translateX(150%);
+  margin-right: -40px;
+  padding-right: 50px;
+  transition: transform 1s ease-in-out;
+  align-items: center;
+}
+
+.navbar .nav-container li {
+  list-style: none;
+  font-size: 1.5rem;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.navbar .nav-container a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 1.6rem;
+  padding: 0.7rem;
+}
+
+.menu-list {
+  display: flex;
+  flex-direction: row;
+}
+
+/**** Hamburger Button ****/
+
+.nav-container .checkbox {
+  position: absolute;
+  display: block;
+  height: 32px;
+  width: 32px;
+  top: 20px;
+  right: 50px;
+  z-index: 5;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.nav-container .hamburger-lines {
+  display: block;
+  height: 26px;
+  width: 32px;
+  position: absolute;
+  top: 17px;
+  right: 50px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nav-container .hamburger-lines .line {
+  display: block;
+  height: 4px;
+  width: 100%;
+  border-radius: 10px;
+  background: #0e2431;
+}
+
+.nav-container .hamburger-lines .line1 {
+  transform-origin: 100% 0%;
+  transition: transform 0.4s ease-in-out, background-color 0.4s ease-in-out;
+}
+
+.nav-container .hamburger-lines .line2 {
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.nav-container .hamburger-lines .line3 {
+  transform-origin: 100% 100%;
+  transition: transform 0.4s ease-in-out, background-color 0.4s ease-in-out;
+}
+
+/**** Menu Items ****/
+
+ul {
+  width: 75%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav-container input[type="checkbox"]:checked ~ .menu-items {
+  transform: translateX(0);
+}
+
+.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+  transform: rotate(-45deg);
+  background-color: white;
+}
+
+.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+  transform: scaleY(0);
+  background-color: white;
+}
+
+.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
+  transform: rotate(45deg);
+  background-color: white;
+}
+
+.nav-container input[type="checkbox"]:checked ~ .menu-items .logo-white {
+  opacity: 1;
+  transition-delay: 0.7s;
+}
+
+.nav-container input[type="checkbox"]:checked ~ .menu-items .navprojets {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.8s;
+}
+
+.nav-container input[type="checkbox"]:checked ~ .menu-items .navpropos {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 1.2s;
+}
+
+.nav-container input[type="checkbox"]:checked ~ .menu-items .navcontact {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 1.6s;
+}
+
+/**** Souligne les liens du menu ****/
+
+.links {
+  position: relative;
+  color: #000;
+  text-decoration: none;
+}
+
+.links:hover {
+  color: #000;
+}
+
+.links::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ffffff;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+a:hover::before {
+  transform: scaleX(1);
+}
+
+/*************************************** MAIN ***************************************/
+
+/* Phrase d'accroche */
+.accroche {
+  margin: 3em;
+  font-family: "Playfair Display", serif;
+  font-size: 1.5em;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  font-family: quicksand;
+}
+
+/* Style de l'image qui apparaît au survol */
+.moi {
+  position: absolute;
+  bottom: 25%;
+  right: -30%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  width: 10em;
+  transform: rotateZ(0.05turn);
+}
+
+.qui-je-suis {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Affichage de l'image au survol */
+.qui-je-suis:hover + .moi {
+  opacity: 1;
+  transform: rotateZ(0.05turn);
+  z-index: 2;
+}
+
+/* Div du bouton de clic */
+.coucou {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  width: 15%;
+  position: fixed;
+  right: 1%;
+}
+
+#clic-button {
+  font-size: 2rem;
+  cursor: pointer;
+  border: none;
+  background-color: #f5f5f5;
+}
+
+#compteur {
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+/* Cadre des citations */
+.quote-container {
+  width: 60%;
+  margin: 2em auto;
+  border-radius: 5px;
+  background-color: #ffffff;
+  border: 1px solid black;
+  padding: 1em;
+  text-align: center;
+  font-style: italic;
+}
+
+.quote-slide {
+  display: none;
+  font-size: 1.2em;
+  line-height: 1.5;
+}
+
+.quote-slide.active {
+  display: block;
+}
+
+h1 {
+  margin-top: 3em;
+  font-family: "Quicksand", sans-serif;
+}
+
+.teamup {
+  background-color: var(--background-color-light);
+  width: 100%;
+  border: 1px solid black;
+}
+
+/* PMes projets */
+
+.lettre-E {
+  color: #385b81;
+}
+
+.apostrophe {
+  color: #e7b613;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.cadre-droite {
+  box-shadow: 5px 0 10px -5px rgba(0, 0, 0, 0.5);
+  margin-bottom: 2em;
+  background-color: #f2f0eb;
+}
+
+.cadre-gauche {
+  box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.5);
+  margin-bottom: 2em;
+  max-width: 100%;
+  background: linear-gradient(315deg, #f2f0eb, #eae8e4, #dad8d0, #cac8bc);
+}
+
+.projets-titres {
+  text-align: center;
+  margin: 0.5em;
+  font-size: 2.5rem;
+  font-family: "Quicksand", sans-serif;
+}
+
+.project-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  /* background-color: aqua; */
+}
+
+.project-container-reverse {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  justify-content: space-between;
+  /* background-color: aqua; */
+}
+
+.projet-img {
+  width: 65%;
+  text-align: start;
+}
+
+.projet-description {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  font-family: "Quicksand", sans-serif;
+  width: 35%;
+}
+
+.projet-description-reverse {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  font-family: "Quicksand", sans-serif;
+  width: 35%;
+}
+
+.teamup {
+  font-weight: bold;
+  border: none;
+  font-size: 1.5em;
+  background-color: transparent;
+}
+
+.details {
+  border: 1px solid lightgray;
+  width: 50%;
+  text-align: center;
+  padding: 0.5em;
+  background-color: white;
+  text-decoration: none;
+}
+
+.details:hover {
+  transform: scale(1.1);
+}
+
+/***********Presentation***********/
+
+.presentation {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.presentation-block1 {
+  width: 50%;
+  height: 100%;
+  font-family: quicksand;
+  line-height: 1.5em;
+}
+
+.presentation-block1 > p {
+  padding: 0 1em 0 0;
+  line-height: 1.5em;
+}
+
+.presentation-block2 {
+  width: 50%;
+  height: 100%;
+  font-family: quicksand;
+}
+
+.presentation-block2 > p {
+  padding: 0 1em 0 0;
+  line-height: 1.5em;
+}
+
+.presentation-block2 > li {
+  list-style: none;
+  line-height: 1.5em;
+}
+
+.presentation-block3 {
+  width: 50%;
+  height: 100%;
+  margin-bottom: 2em;
+  font-family: quicksand;
+}
+
+.presentation-block3 > li {
+  list-style: none;
+}
+
+.presentation-block3 > p {
+  padding: 0 1em 0 0;
+  line-height: 1.5em;
+}
+
+.presentation-block3 > li {
+  list-style: none;
+  line-height: 1.5em;
+}
+
+/*************************************** FOOTER ***************************************/
+
+footer {
+  color: #000000;
+}
+
+#adress {
+  text-align: center;
+  display: flex;
+  height: 100%;
+}
+
+.contactMail {
+  width: 50%;
+  height: 10em;
+  font-family: quicksand;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contactMail > p {
+  margin: 0;
+}
+
+#icons {
+  width: 50%;
+  font-family: quicksand;
+  display: flex;
+  flex-direction: column;
+  padding-top: 1.5em;
+}
+
+#icons > p {
+  margin: 0;
+}
+
+#premierTrait {
+  height: 1px;
+  background-color: lightgray;
+  margin-top: 5em;
+  margin-bottom: 2em;
+}
+
+#copyrighht-container {
+  text-align: end;
+  font-size: 0.8em;
+}
+
+.contactMail a {
+  display: inline-block;
+  padding: 0 15px;
+  font-size: 2em;
+  color: #000000;
+  margin: 0.5em;
+}
+
+.contactMail a:hover {
+  transform: scale(1.5);
+  transition: 0.1s;
+  color: rgb(0, 0, 0);
+}
+
+#icons a {
+  display: inline-block;
+  padding: 0 15px;
+  font-size: 2em;
+  color: #000000;
+}
+
+#icons a:hover {
+  transform: scale(1.5);
+  transition: 0.1s;
+  color: rgb(0, 0, 0);
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.back-to-top img {
+  width: 100%;
+  height: auto;
+}
+
+/* Faire apparaître la flèche lorsque vous faites défiler vers le bas */
+.show-back-to-top {
+  width: 100%;
+  display: flex;
+  opacity: 1;
+}
