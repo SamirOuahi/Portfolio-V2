@@ -290,7 +290,7 @@ a:hover::before {
 }
 
 /* Div du bouton de clic */
-.coucou {
+/* .coucou {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -299,9 +299,9 @@ a:hover::before {
   width: 15%;
   position: fixed;
   right: 1%;
-}
+} */
 
-#clic-button {
+/* #clic-button {
   font-size: 2rem;
   cursor: pointer;
   border: none;
@@ -311,7 +311,7 @@ a:hover::before {
 #compteur {
   font-size: 0.8rem;
   margin: 0;
-}
+} */
 
 /* Cadre des citations */
 .quote-container {
@@ -323,12 +323,18 @@ a:hover::before {
   padding: 1em;
   text-align: center;
   font-style: italic;
+  height: 100px; /* Hauteur fixe */
+  overflow-y: auto; /* Ajout de défilement vertical si nécessaire */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .quote-slide {
-  display: none;
   font-size: 1.2em;
   line-height: 1.5;
+  display: none;
 }
 
 .quote-slide.active {
@@ -365,30 +371,103 @@ ul {
   padding: 0;
 }
 
+/* Appliquer l'animation à l'élément h1 */
+.h1-effet {
+  font-size: 2em;
+  margin-bottom: 3em;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 0.2s ease-in-out, transform 0.7s ease-in-out;
+}
+
+.h1-effet.animate-slide {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
 .cadre-droite {
-  box-shadow: 5px 0 10px -5px rgba(0, 0, 0, 0.5);
-  margin-bottom: 2em;
-  background-color: #f2f0eb;
+  /* box-shadow: 5px 0 10px -5px rgba(0, 0, 0, 0.5); */
+  padding: 2em;
+  border-radius: 5px;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+  width: 100%;
+  /* margin-bottom: 2em; */
+  background-color: transparent;
   opacity: 0; /* Commencez avec une opacité de 0 pour l'effet d'apparition */
   transform: translateX(-100%);
-  transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+  transition: opacity 1.2s ease-in-out, transform 1.2s ease-in-out;
+}
+
+.cadre-gauche {
+  /* box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.5); */
+  padding: 2em;
+  border-radius: 5px;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+  /* margin-bottom: 2em; */
+  width: 100%;
+  /* background: linear-gradient(315deg, #f2f0eb, #eae8e4, #dad8d0, #cac8bc); */
+  opacity: 0; /* Commencez avec une opacité de 0 pour l'effet d'apparition */
+  transform: translateX(100%); /* Déplacez l'élément hors de la vue */
+  transition: opacity 1.2s ease-in-out, transform 1.2s ease-in-out;
 }
 
 .cadre-droite.animate-slide {
   opacity: 1;
   transform: translateX(0%);
+  width: 100%;
 }
 
-.cadre-gauche {
-  box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.5);
-  margin-bottom: 2em;
-  max-width: 100%;
-  background: linear-gradient(315deg, #f2f0eb, #eae8e4, #dad8d0, #cac8bc);
+.cadre-gauche.animate-slide {
+  opacity: 1;
+  transform: translateX(0%);
+  width: 100%;
 }
 
-.projets-titres {
-  text-align: center;
-  margin: 0.5em;
+.img-teamup {
+  border-radius: 10px;
+  padding: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(221, 199, 199);
+  width: 70%;
+  height: auto;
+}
+
+.img-retrogaming {
+  border-radius: 10px;
+  padding: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(197, 209, 231);
+  width: 70%;
+  height: auto;
+}
+
+.cadre-gauche > img {
+  width: 100%;
+  height: auto;
+}
+
+.cadre-droite > img {
+  display: flex;
+  align-items: center;
+  background-color: red;
+  width: 500px;
+  height: auto;
+}
+
+.projets-titres-droite {
+  text-align: start;
+  margin: 0.5em 0.5em 0.5em 3em;
+  font-size: 2.5rem;
+  font-family: "Quicksand", sans-serif;
+}
+
+.projets-titres-gauche {
+  text-align: end;
+  margin: 0.5em 3em 0.5em 0.5em;
   font-size: 2.5rem;
   font-family: "Quicksand", sans-serif;
 }
@@ -407,8 +486,7 @@ ul {
 }
 
 .projet-img {
-  width: 65%;
-  text-align: start;
+  width: 100%;
 }
 
 .projet-description {
@@ -448,6 +526,21 @@ ul {
 }
 
 /***********Presentation***********/
+
+.h1-effet2 {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 0.5s ease-in-out, transform 1s ease-in-out;
+}
+
+.h1-effet2.animate-slide {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+.toto {
+  font-size: 2em;
+}
 
 .presentation {
   width: 100%;

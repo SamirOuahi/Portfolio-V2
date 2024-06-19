@@ -71,23 +71,62 @@ function elementIsVisible(el) {
     window.innerHeight || document.documentElement.clientHeight;
 
   // Calculer la position à partir du haut de la fenêtre
-  var triggerPosition = windowHeight / 1.2; // Déclenchement lorsque l'élément est à mi-chemin dans la fenêtre
+  var triggerPosition = windowHeight / 1; // Déclenchement lorsque l'élément est à mi-chemin dans la fenêtre
 
   return rect.top <= triggerPosition;
 }
 
-// Fonction pour activer l'animation lorsque l'élément devient visible
-function activateAnimation() {
-  var elements = document.querySelectorAll(".cadre-droite");
-  elements.forEach(function (el) {
+// Fonction pour activer l'animation lorsque les éléments deviennent visibles
+function activateAnimations() {
+  var elementsDroite = document.querySelectorAll(".cadre-droite");
+  var elementsGauche = document.querySelectorAll(".cadre-gauche");
+  var elementsH1Effet = document.querySelectorAll(".h1-effet");
+  var elementsH1Effet2 = document.querySelectorAll(".h1-effet2");
+
+  // Activer animation pour .cadre-droite et .cadre-gauche
+  elementsDroite.forEach(function (el) {
+    if (elementIsVisible(el)) {
+      el.classList.add("animate-slide");
+    }
+  });
+
+  elementsGauche.forEach(function (el) {
+    if (elementIsVisible(el)) {
+      el.classList.add("animate-slide");
+    }
+  });
+
+  // Activer animation pour .h1-effet
+  elementsH1Effet.forEach(function (el) {
+    if (elementIsVisible(el)) {
+      el.classList.add("animate-slide");
+    }
+  });
+
+  // Activer animation pour .h1-effet2
+  elementsH1Effet2.forEach(function (el) {
     if (elementIsVisible(el)) {
       el.classList.add("animate-slide");
     }
   });
 }
 
+// Fonction pour détecter si un élément est visible dans la fenêtre
+function elementIsVisible(el) {
+  var rect = el.getBoundingClientRect();
+  var windowHeight =
+    window.innerHeight || document.documentElement.clientHeight;
+  return rect.top <= windowHeight * 0.75; // Apparaît lorsque l'élément est à 75% de la hauteur de la fenêtre
+}
+
 // Écouteur d'événement pour déclencher l'activation de l'animation au scroll
-window.addEventListener("scroll", activateAnimation);
+window.addEventListener("scroll", activateAnimations);
 
 // Activation initiale au chargement de la page
-activateAnimation();
+activateAnimations();
+
+// Écouteur d'événement pour déclencher l'activation de l'animation au scroll
+window.addEventListener("scroll", activateAnimations);
+
+// Activation initiale au chargement de la page
+activateAnimations();
