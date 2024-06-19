@@ -24,6 +24,8 @@ body {
   width: 100px;
   height: auto;
   transition: transform 0.3s ease-in-out;
+  position: absolute;
+  z-index: 2;
 }
 
 .logo-black:hover {
@@ -84,4 +86,66 @@ body {
   100% {
     transform: translateX(-100%);
   }
+}
+
+/**** Cadre photo ****/
+
+.about-intro-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.myphoto {
+  width: 50%;
+  margin-left: 8em;
+}
+
+.moi {
+  width: 50%;
+}
+
+.content > p {
+  max-width: 700px;
+  line-height: 1.9rem;
+}
+
+/**** Parcours ****/
+
+.parcours {
+  margin-top: 7em;
+  line-height: 1.9rem;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.back-to-top img {
+  width: 100%;
+  height: auto;
+}
+
+/* Faire apparaître la flèche lorsque vous faites défiler vers le bas */
+.show-back-to-top {
+  width: 100%;
+  display: flex;
+  opacity: 1;
+}
+
+.skills {
+  display: flex;
+  gap: 2em;
+}
+
+.skills > img {
+  width: 5em;
 }
