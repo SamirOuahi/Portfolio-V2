@@ -63,3 +63,31 @@ backToTopButton.addEventListener("click", (e) => {
     }
   }, 15); // Interval de temps en ms pour le défilement
 });
+
+// Fonction pour détecter si un élément est visible dans la fenêtre
+function elementIsVisible(el) {
+  var rect = el.getBoundingClientRect();
+  var windowHeight =
+    window.innerHeight || document.documentElement.clientHeight;
+
+  // Calculer la position à partir du haut de la fenêtre
+  var triggerPosition = windowHeight / 1.2; // Déclenchement lorsque l'élément est à mi-chemin dans la fenêtre
+
+  return rect.top <= triggerPosition;
+}
+
+// Fonction pour activer l'animation lorsque l'élément devient visible
+function activateAnimation() {
+  var elements = document.querySelectorAll(".cadre-droite");
+  elements.forEach(function (el) {
+    if (elementIsVisible(el)) {
+      el.classList.add("animate-slide");
+    }
+  });
+}
+
+// Écouteur d'événement pour déclencher l'activation de l'animation au scroll
+window.addEventListener("scroll", activateAnimation);
+
+// Activation initiale au chargement de la page
+activateAnimation();

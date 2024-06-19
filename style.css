@@ -233,6 +233,25 @@ a:hover::before {
 
 /*************************************** MAIN ***************************************/
 
+/* Animation */
+
+/* Animation Keyframes */
+@keyframes zoom-fade-in {
+  0% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Apply the animation */
+.zoom-fade-in {
+  animation: zoom-fade-in 1.3s ease-out;
+}
+
 /* Phrase d'accroche */
 .accroche {
   margin: 3em;
@@ -259,6 +278,8 @@ a:hover::before {
 .qui-je-suis {
   cursor: pointer;
   font-weight: bold;
+  text-decoration: none;
+  color: black;
 }
 
 /* Affichage de l'image au survol */
@@ -325,7 +346,7 @@ h1 {
   border: 1px solid black;
 }
 
-/* PMes projets */
+/* Mes projets */
 
 .lettre-E {
   color: #385b81;
@@ -348,6 +369,14 @@ ul {
   box-shadow: 5px 0 10px -5px rgba(0, 0, 0, 0.5);
   margin-bottom: 2em;
   background-color: #f2f0eb;
+  opacity: 0; /* Commencez avec une opacité de 0 pour l'effet d'apparition */
+  transform: translateX(-100%);
+  transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+}
+
+.cadre-droite.animate-slide {
+  opacity: 1;
+  transform: translateX(0%);
 }
 
 .cadre-gauche {
@@ -368,7 +397,6 @@ ul {
   display: flex;
   width: 100%;
   justify-content: space-between;
-  /* background-color: aqua; */
 }
 
 .project-container-reverse {
@@ -376,7 +404,6 @@ ul {
   flex-direction: row-reverse;
   width: 100%;
   justify-content: space-between;
-  /* background-color: aqua; */
 }
 
 .projet-img {
@@ -416,7 +443,7 @@ ul {
   text-decoration: none;
 }
 
-.details:hover {
+.details {
   transform: scale(1.1);
 }
 
