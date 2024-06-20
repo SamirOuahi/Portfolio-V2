@@ -231,7 +231,9 @@ a:hover::before {
 }
 
 /*************************************** MAIN ***************************************/
-
+li {
+  list-style: none;
+}
 .container-title {
   margin-top: 5em;
   margin-bottom: 2em;
@@ -313,31 +315,26 @@ a:hover::before {
 }
 
 .fusion {
-  width: 10000px;
   height: 205px;
   background-color: blueviolet;
 }
 
 .om {
-  width: 10000px;
   height: 355px;
   background-color: rgb(149, 165, 42);
 }
 
 .steamup {
-  width: 10000px;
   height: 155px;
   background-color: rgb(149, 165, 42);
 }
 
 .fullteamup {
-  width: 10000px;
   height: 585px;
   background-color: rgb(149, 165, 42);
 }
 
 .retro {
-  width: 10000px;
   height: 355px;
   background-color: rgb(149, 165, 42);
 }
