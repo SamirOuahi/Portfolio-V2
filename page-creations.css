@@ -8,10 +8,12 @@
 }
 
 body {
-  padding: 0 5em;
+  margin: 0;
+  /* padding: 0 5em; */
   background-color: var(--background-color-light);
   overflow-x: hidden;
   font-family: quicksand;
+  box-sizing: border-box;
 }
 
 /*************************************** HEADER ***************************************/
@@ -286,7 +288,7 @@ li {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  gap: 1em;
+  justify-content: center;
 }
 
 .test {
@@ -295,10 +297,11 @@ li {
   display: flex;
   flex-wrap: wrap;
   gap: 1em;
+  padding: 0;
 }
 
 .p1 {
-  width: 32%;
+  width: 29%;
   height: 100%;
   display: flex;
   /* background-color: aqua; */
