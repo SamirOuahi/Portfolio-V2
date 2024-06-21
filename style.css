@@ -537,6 +537,45 @@ ul {
   justify-content: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #5b5963;
+  position: relative;
+}
+
+.services-box:hover {
+  width: 30%;
+  height: 13em;
+  background-color: rgb(1, 1, 1);
+  margin: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #ffffff;
+  position: relative;
+
+  .custom-color {
+    color: #ffffff;
+  }
+
+  .text-hover {
+    color: #ffffff;
+    visibility: visible;
+    font-size: 0.7em;
+    text-align: center;
+    text-transform: none;
+    font-weight: none;
+    padding: 0 1em;
+  }
+}
+
+.text-hover {
+  visibility: hidden;
 }
 
 .custom-color {
