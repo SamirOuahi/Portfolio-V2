@@ -558,6 +558,7 @@ ul {
   font-weight: bold;
   color: #ffffff;
   position: relative;
+  cursor: pointer;
 
   .custom-color {
     color: #ffffff;
